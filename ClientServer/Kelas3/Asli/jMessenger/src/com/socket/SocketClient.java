@@ -38,6 +38,12 @@ public class SocketClient implements Runnable{
                 System.out.println("Incoming : "+msg.toString());
                 
                 if(msg.type.equals("message")){
+                    String[] splitStr = msg.content.split("\\s+")
+                    if(splitStr[0].equals("PEMENANG")){
+                        ui.jTextArea1.append("SUKURR KALAH")
+                        ui.jButton4.setEnabled(false)
+                    }
+
                     if(msg.recipient.equals(ui.username)){
                         ui.jTextArea1.append("["+msg.sender +" > Me] : " + msg.content + "\n");
                     }

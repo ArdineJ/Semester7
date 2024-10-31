@@ -76,6 +76,7 @@ public class SocketServer implements Runnable {
     public int clientCount = 0, port = 13000;
     public ServerFrame ui;
     public Database db;
+    public int flagpemenang;
 
     public SocketServer(ServerFrame frame){
        
@@ -174,7 +175,13 @@ public class SocketServer implements Runnable {
             }
             else if(msg.type.equals("message")){
                 if(msg.recipient.equals("All")){
-                    Announce("message", msg.sender, msg.content);
+                    if(Integer.parseInt(msg.content) == (ui.b1 * ui.b2)){
+                        flagpemenang++;
+                        if(flagpemenang==1){
+                            Announce("message", msg.sender, "PEMENANG LOMBA:" + msg.sender); 
+                    }else{
+                            Announce("message", msg.sender, "JAWABAN BENAR:" + msg.sender); 
+                    }
                 }
                 else{
                     findUserThread(msg.recipient).send(new Message(msg.type, msg.sender, msg.content, msg.recipient));
