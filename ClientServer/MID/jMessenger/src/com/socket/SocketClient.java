@@ -102,7 +102,7 @@ public class SocketClient implements Runnable{
                             }
                     }
                     
-                    if (checkCollision(ui.jButton11, ui.jButton9) || checkCollision(ui.jButton12, ui.jButton10) || checkCollision(ui.jButton13, ui.jButton10) || checkCollision(ui.jButton14, ui.jButton10)) {
+                    if (checkCollision(ui.jButton11, ui.jButton9) || checkCollision(ui.jButton12, ui.jButton9) || checkCollision(ui.jButton13, ui.jButton9) || checkCollision(ui.jButton14, ui.jButton9)) {
                         ui.jTextArea1.append("MUTER BALEK !!!");
                         ui.jButton12.setEnabled(false);
                     } else {
